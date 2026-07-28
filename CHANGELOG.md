@@ -2102,3 +2102,9 @@ The Weekend 1 update!
 ### Added
 
 - Uh, everything. This the game's initial gamejam release. We put it out
+
+## [TESTBUILDS] - 2026-07-28
+
+### Aze Engine Tests
+
+- [TEST] Fixing the engine.
