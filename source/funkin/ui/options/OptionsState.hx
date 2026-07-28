@@ -78,7 +78,7 @@ class OptionsState extends MusicBeatState
     var saveData:SaveDataMenu = optionsCodex.addPage(SaveData, new SaveDataMenu());
 
     options.addSaveDataOptionsItem(saveData);
-    options.addExitItem();
+    // options.addExitItem();
 
     if (options.hasMultipleOptions())
     {
@@ -208,6 +208,7 @@ class OptionsMenu extends Page<OptionsMenuPageName>
       funkin.external.android.DataFolderUtil.openDataFolder();
     });
     #end
+    /*
     #if FEATURE_NEWGROUNDS
     if (NewgroundsClient.instance.isLoggedIn())
     {
@@ -242,6 +243,7 @@ class OptionsMenu extends Page<OptionsMenuPageName>
       });
     }
     #end
+    */
 
     // Create an object for the camera to track.
     camFocusPoint = new FlxObject(0, 0, 140, 70);
