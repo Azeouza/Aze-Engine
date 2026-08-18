@@ -14,6 +14,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 
+## [TESTBUILDS] - 2026-07-28
+
+### Aze Engine Tests
+
+- [TEST] Fixing the engine.
+
+
+
 ## [0.8.6] - 2026-08-12
 
 ### Added
@@ -2102,9 +2110,3 @@ The Weekend 1 update!
 ### Added
 
 - Uh, everything. This the game's initial gamejam release. We put it out
-
-## [TESTBUILDS] - 2026-07-28
-
-### Aze Engine Tests
-
-- [TEST] Fixing the engine.
