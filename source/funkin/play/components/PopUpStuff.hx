@@ -86,8 +86,6 @@ class PopUpStuff extends FlxTypedGroup<FunkinSprite>
 
     var daLoop:Int = 0;
 
-    var totalWidth:Float = 0;
-
     var totalWidth:Float = seperatedScore.length * 36;
 
     for (digit in seperatedScore)
