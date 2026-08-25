@@ -78,7 +78,10 @@ class OptionsState extends MusicBeatState
     var saveData:SaveDataMenu = optionsCodex.addPage(SaveData, new SaveDataMenu());
 
     options.addSaveDataOptionsItem(saveData);
-    // options.addExitItem();
+
+    #if FEATURE_TOUCH_CONTROLS
+    options.addExitItem();
+    #endif
 
     if (options.hasMultipleOptions())
     {
