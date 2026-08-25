@@ -326,7 +326,7 @@ class MainMenuState extends MusicBeatState
   {
     if (leftWatermarkText == null) return;
 
-    leftWatermarkText.text = "Aze Engine vTESTINGBUILDS\nFriday Night Funkin' v0.8.6";
+    leftWatermarkText.text = "Aze Engine vTESTINGBUILDS\nFriday Night Funkin' v0.8.7";
 
     leftWatermarkText.y -= 16;
 
