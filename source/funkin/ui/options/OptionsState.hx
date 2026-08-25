@@ -79,9 +79,7 @@ class OptionsState extends MusicBeatState
 
     options.addSaveDataOptionsItem(saveData);
 
-    #if FEATURE_TOUCH_CONTROLS
     options.addExitItem();
-    #endif
 
     if (options.hasMultipleOptions())
     {
