@@ -31,6 +31,7 @@ import funkin.mobile.util.InAppPurchasesUtil;
 #end
 import flixel.util.FlxColor;
 
+
 /**
  * The main options menu
  * It mainly is controlled via the "optionsCodex" object,
@@ -78,8 +79,6 @@ class OptionsState extends MusicBeatState
     var saveData:SaveDataMenu = optionsCodex.addPage(SaveData, new SaveDataMenu());
 
     options.addSaveDataOptionsItem(saveData);
-
-    options.addExitItem();
 
     if (options.hasMultipleOptions())
     {
@@ -153,9 +152,9 @@ class OptionsState extends MusicBeatState
 class OptionsMenu extends Page<OptionsMenuPageName>
 {
   var items:TextMenuList;
-  #if FEATURE_TOUCH_CONTROLS
+
+  #if mobile
   var backButton:FunkinBackButton;
-  var goingBack:Bool = false;
   #end
 
   /**
@@ -170,6 +169,10 @@ class OptionsMenu extends Page<OptionsMenuPageName>
     super();
     add(items = new TextMenuList());
 
+    #if mobile
+    backButton = new FunkinBackButton(FlxG.width - 230, FlxG.height - 200, exit, 1.0);
+    add(backButton);
+    #end
     createItem('PREFERENCES', function() codex.switchPage(Preferences));
     #if mobile
     if (ControlsHandler.hasExternalInputDevice)
@@ -294,17 +297,13 @@ class OptionsMenu extends Page<OptionsMenuPageName>
 
   public function addExitItem():Void
   {
-    #if NO_FEATURE_TOUCH_CONTROLS
-    createItem('EXIT', exit);
-    #else
-    backButton = new FunkinBackButton(FlxG.width - 230, FlxG.height - 200, exit, 1.0);
-    backButton.onConfirmStart.add(function()
+    #if mobile
+    createItem('EXIT', function()
     {
-      items.busy = true;
-      goingBack = true;
-      backButton.active = true;
+      codex.currentPage.enabled = false;
+      FlxG.keys.enabled = false;
+      FlxG.switchState(() -> new MainMenuState());
     });
-    add(backButton);
     #end
   }
 
@@ -327,10 +326,6 @@ class OptionsMenu extends Page<OptionsMenuPageName>
     {
       FlxG.sound.music.volume += 0.5 * elapsed;
     }
-
-    #if FEATURE_TOUCH_CONTROLS
-    backButton.active = (!goingBack) ? !items.busy : true;
-    #end
     super.update(elapsed);
   }
 
